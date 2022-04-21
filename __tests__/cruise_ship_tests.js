@@ -22,7 +22,9 @@ describe('Ship', () => {
                 ships: []
             };
 
-        itinerary = new Itinerary([dover, calais]);
+        itinerary = { ports: [dover, calais]
+        };
+        
         ship = new Ship(itinerary);
         });
 
@@ -50,7 +52,7 @@ describe('Ship', () => {
             expect(ship.currentPort).toBe(calais);
             expect(calais.addShip).toHaveBeenCalledWith[ship];
         });
-        
+
         it('can\'t sail further than its itinerary', () => {
             ship.setSail();
             ship.dock();
